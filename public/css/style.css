@@ -1,0 +1,210 @@
+/* Use San Francisco font for text */
+body {
+  font-family: "San Francisco", sans-serif;
+}
+
+/* had to style the navbar individually */
+#textyhome,
+#texty,
+#textylogin,
+#textylogout,
+#textysiteadmin,
+#textysubmit,
+#textyselect {
+  color: #ffffff;
+  font-size: x-large;
+}
+
+/* Use minimalist color scheme */
+body {
+  background-color: #7ea310;
+  color: #ffffff;
+}
+
+/* declared a custom box on top of the springcards for texts and buttons */
+.box {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #28666e;
+  color: #ffffff
+}
+
+/* declared a custom box for springcards to look even nicer */
+.springbox {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #28666e;
+  color: #ffffff;
+  height: 100%;
+  padding: 2%;
+  margin-bottom: 2%;
+}
+
+/* Use accent color for buttons */
+.button {
+  background-color: #7c9885;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ponce button colour */
+.ponce {
+  background-color: #7c9885
+}
+
+/* Hover and active animations for buttons */
+.button:hover,
+.button:active {
+  background-color: #007aff;
+  color: #fff;
+  transform: scale(1.05);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* styles the navbar */
+.navbar {
+  background-color: #28666e;
+  color: #ffffff;
+  font-family: 'Gloock', serif;
+}
+
+/* styles the image border */
+.img-border {
+
+  background-color: rgb(181, 229, 227);
+}
+
+
+/* styles the spring card and text within */
+.spring-card {
+  color: #ffffff;
+  text-align: center;
+  border-radius: 25px;
+  font-family: 'Gloock', serif;
+}
+
+/* styles the description */
+.springs-description {
+  background-color: #007aff;
+}
+
+/* styles the background */
+.body-background {
+  background-repeat: repeat;
+  background-size: 100%;
+  background-color: #508f73;
+}
+
+/* sizes the description on individual springs page */
+.list-group-item {
+  background-color: #28666e;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* sizes the image */
+.myimage {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* sizes the map element itself */
+#map {
+  width: 100%;
+  height: 50vh;
+}
+
+/* ******************************************* */
+/* *********** Star Rating ******************* */
+/* ******************************************* */
+.rating {
+  /* float:left; */
+  width: 100%;
+}
+
+/* .rating span { float:right; position:relative; } */
+.rating span input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+}
+
+.rating span label {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: #FFF;
+  background: #ccc;
+  font-size: 30px;
+  margin-right: 2px;
+  line-height: 30px;
+  border-radius: 50%;
+}
+
+.rating span:hover~span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked~span label {
+  background: #F90;
+  color: #FFF;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.bg-custom {
+  background-color: #6ea5c1;
+}
+
+/* This is for the star rating to make the radio buttons stars */
+.five-pointed-star {
+  --star-color: orange;
+  margin: 1em auto;
+  font-size: 10em;
+  position: relative;
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-right: 1em solid transparent;
+  border-bottom: 0.7em solid var(--star-color);
+  border-left: 1em solid transparent;
+  transform: rotate(35deg);
+}
+
+.five-pointed-star:before {
+  border-bottom: 0.8em solid var(--star-color);
+  border-left: 0.3em solid transparent;
+  border-right: 0.3em solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -0.45em;
+  left: -0.65em;
+  display: block;
+  content: "";
+  transform: rotate(-35deg);
+}
+
+.five-pointed-star:after {
+  position: absolute;
+  display: block;
+  top: 0.03em;
+  left: -1.05em;
+  width: 0;
+  height: 0;
+  border-right: 1em solid transparent;
+  border-bottom: 0.7em solid var(--star-color);
+  border-left: 1em solid transparent;
+  transform: rotate(-70deg);
+  content: "";
+}

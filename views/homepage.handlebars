@@ -1,0 +1,29 @@
+<!-- Loop over each object in the projects array -->
+{{#each springs as |spring| }}
+<div>
+  <div class="row w-60 m-5 p-5">
+    <div class="col-md">
+      <div class="card border box border-rounded shadow spring-card">
+        <h5 class="card-title text-center">{{spring.name}}</h5>
+        <div class="text-center">
+          <img src="{{spring.image_url}}" class="card-img-top border rounded img-border w-75"
+            alt="an image of a spring">
+        </div>
+        <div class="card-body ">
+          <p class="text-center card-text">{{spring.description}}</p>
+        </div>
+        <p class="text-center">
+          <span id="spring{{spring.id}}" class="mr-5">67 miles away</span>
+
+          <a href="/springs/{{spring.id}}" class="btn btn-info btn-lg active " role="button" aria-pressed="true">More
+            Information</a>
+
+          <span id="weather{{spring.id}}" class="ml-5"></span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {{/each}}
+  {{!-- homepage script --}}
+  <script type="module" src="../js/script.js"></script>

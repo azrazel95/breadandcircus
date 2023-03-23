@@ -1,0 +1,51 @@
+<div class="row mt-5 m-1">
+  <div class=" box card border border-rounded shadow spring-card flex-grow-1 p-2 m-1">
+    <form>
+      {{!-- new script form! --}}
+      <div class="form-group">
+        <p>Please enter the information below to add a new spring to the site.</p>
+        <p><label for="springnamem">Spring Name:</label></p>
+        <p><input type="text" id="springnamem" /></p>
+        <p><label for="descriptionm">Description of the spring:</label></p>
+        <p><input type="text" id="descriptionm" /></p>
+        <p><label for="campingm">Camping allowed?</label>
+          <input type="checkbox" id="campingm" />
+        </p>
+        <p><label for="petfriendlym">Pets allowed?</label>
+          <input type="checkbox" id="petfriendlym" />
+        </p>
+        <p><label for="stateparkm">Is this spring a statepark?</label>
+          <input type="checkbox" id="stateparkm" />
+        </p>
+        <p><label for="zipcodem">Please enter zipcode for the spring.</label></p>
+        <p><input type="text" id="zipcodem" /></p>
+        <button type="submit" id="newSpring" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+<div class="box card border border-rounded shadow spring-card flex-grow-1 p-2 m-1">
+  <h2>The following springs are pending review by an administrator. New requests are usually aproved within 24 hours.
+  </h2>
+</div>
+{{!-- new spring partial --}}
+{{#each springs as |spring| }}
+
+<div class="box card border border-rounded shadow spring-card flex-grow-1 p-2 m-1">
+  <h3>Spring Name</h3>
+  <p id="spring">{{spring.name}}</p>
+  <h3>Description</h3>
+  <p id="desc">{{spring.description}}</p>
+  <h3>Camping</h3>
+  <p id="camp">{{spring.camping}}</p>
+  <h3>Pet Friendly</h3>
+  <p id="pet">{{spring.pets}}</p>
+  <h3>Zipcode:</h3>
+  <p id="zip">{{spring.zipcode}}</p>
+  <h3>State Park:</h3>
+  <p id="statepark">{{spring.statepark}}</p>
+</div>
+
+{{/each}}
+{{!-- newspring script --}}
+<script src="../js/newspring.js"></script>

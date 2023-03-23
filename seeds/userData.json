@@ -1,0 +1,32 @@
+[
+  {
+    "username": "one2many",
+    "email": "one2many@getoutdoorsfla.com",
+    "password": "password123",
+    "permissions": "admin"
+  },
+  {
+    "username": "badawi",
+    "email": "badawi@getoutdoorsfla.com",
+    "password": "password123",
+    "permissions": "admin"
+  },
+  {
+    "username": "rocketman",
+    "email": "rocketman@getoutdoorsfla.com",
+    "password": "password123",
+    "permissions": "admin"
+  },
+  {
+    "username": "tyrone",
+    "email": "tyrone@getoutdoorsfla.com",
+    "password": "password123",
+    "permissions": "admin"
+  },
+  {
+    "username": "ben",
+    "email": "ben@getoutdoorsfla.com",
+    "password": "password123",
+    "permissions": "admin"
+  }
+]
