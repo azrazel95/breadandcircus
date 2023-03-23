@@ -1,87 +1,48 @@
-<div class="row mt-5 m-1">
-  <div class="card box border border-rounded shadow spring-card flex-grow-1 p-2 m-5">
-    <h2>Welcome, {{user.name}}!</h2>
-    <table>
-      <tr>
-        <td>First Name:</td>
-        <td>{{user.first_name}}</td>
-        <td>Last Name:</td>
-        <td>{{user.last_name}}</td>
-        <td>Email:</td>
-        <td>{{user.email}}</td>
-        <td>Zipcode:</td>
-        <td>{{user.zipcode}}</td>
-      </tr>
-    </table>
-    {{!-- update information button --}}
-    <form class="profile-form">
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Create a New Project:</h3>
+
+    <form class="form new-project-form">
       <div class="form-group">
-        <button class="btn btn-primary" id="newInfo" type="submit">Update</button>
+        <label for="project-name">project name:</label>
+        <input class="form-input" type="text" id="project-name" name="project-name" />
+      </div>
+      <div class="form-group">
+        <label for="project-funding">needed funding ($):</label>
+        <input class="form-input" type="number" id="project-funding" name="project-funding" />
+      </div>
+      <div class="form-group">
+        <label for="project-desc">description:</label>
+        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
       </div>
     </form>
-
   </div>
 
-  {{!-- <div class="row-md-6">
-    <h3>Your Profile:</h3>
-    <p>Username: {{user.name}}</p>
-    <p>Email: {{user.email}}</p>
-  </div> --}}
+  {{#if projects.length}}
+  <div class="col-md-6 project-list">
+    <h3>Current Projects:</h3>
 
-  {{!-- update password form --}}
-  <form action="/profile/update-password" method="post">
-    <div class="form-group-pw">
-      <h3>Your Profile:</h3>
-      <p>Username: {{user.name}}</p>
-      <p>Email: {{user.email}}</p>
-      <label for="oldPassword">Old Password:</label>
-      <input type="oldPassword" id="oldPassword" name="oldPassword" required>
-      <label for="password">New Password:</label>
-      <input type="password" id="password" name="password" required>
-      <div class="form-group-pw">
-        <button type="submit" id="newPassword" class="btn btn-primary">Update Password</button>
+    {{#each projects as |project|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
       </div>
     </div>
-</div>
-</form>
-{{!-- currently disabled --}}
-{{!-- <h4>Rated Springs:</h4>
-<ul>
-  {{#each ratedSprings}}
-  <li>{{this.name}}</li>
-  {{/each}}
-</ul>
-
-<h4>Commented Springs:</h4>
-<ul>
-  {{#each commentedSprings}}
-  <li>{{this.name}}</li>
-  {{/each}}
-</ul> --}}
-</div>
-</div>
-</div>
-</div>
-</form>
-{{!-- {{#if springs.length}}
-<div class="col-md-6 project-list">
-  <h3>Current Projects:</h3>
-
-  {{#each springs as |spring|}}
-  <div class="row mb-2">
-    <div class="col-md-8">
-      <h4><a href="/spring/{{spring.id}}">{{spring.name}}</a></h4>
-    </div>
-    <div class="col-md-4">
-      <button class="btn btn-sm btn-danger" data-id="{{spring.id}}">DELETE</button>
-    </div>
+    {{/each}}
   </div>
-  {{/each}}
+  {{/if}}
 </div>
-{{/if}}
-</div> --}}
-</div>
-</div>
-
 
 <script src="./js/profile.js"></script>

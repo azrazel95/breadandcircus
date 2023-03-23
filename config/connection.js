@@ -1,9 +1,8 @@
-//importing sequelize, utilizing the .env for login info
 const Sequelize = require('sequelize');
 require('dotenv').config();
-//declaring sequelize
+
 let sequelize;
-//utilizing the jawsdb database, otherwise utilizing what is in the .env and connecting to mysql
+
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
