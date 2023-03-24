@@ -7,12 +7,13 @@ const newFormHandler = async (event) => {
   if (name && description) {
     const response = await fetch(`/api/posts`, {
       method: 'POST',
-      body: JSON.stringify({ name, description }),
+      body: JSON.stringify({ "post_name": `${name}`, "description": `${description}` }),
+      
       headers: {
         'Content-Type': 'application/json',
       },
     });
-
+    console.log(name, description)
     if (response.ok) {
       document.location.replace('/profile');
     } else {
