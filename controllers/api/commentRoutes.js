@@ -1,11 +1,14 @@
 const router = require('express').Router();
-const { Comments, User } = require('../../models');
+const { Comment, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) =>{
   try{
-    const commentData = await Comments.findAll({
-      include: [{ model: User}]
+    const commentData = await Comment.findAll({
+      include: [
+        { model: User, attributes: ['name'] },
+        { model: Post, attributes: ['post_name'] }
+      ]
     }); 
     res.status(200).json(commentData);
   } catch (err) {
@@ -13,6 +16,20 @@ router.get('/', async (req, res) =>{
   }
 })
 
+
+router.get('/:id', async (req, res) =>{
+  try{
+    const commentData = await Comment.findByPk(req.params.id, {
+      include: [
+        { model: User, attributes: ['name'] },
+        { model: Post, attributes: ['post_name'] }
+      ]
+    }); 
+    res.status(200).json(commentData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 router.post('/', withAuth, async (req, res) => {
   try {
