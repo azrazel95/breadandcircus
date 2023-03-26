@@ -16,9 +16,10 @@
         <a href="/">Bread and Circus techblog</a>
       </h1>
       <nav>
+        <a href="/profile">dashboard</a> |
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">dashboard</a> |
+        
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
