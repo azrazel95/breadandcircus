@@ -1,22 +1,35 @@
 <div class="text-center">
   <h2>{{post_name}}</h2>
   <p>{{description}}</p>
-  <p>{{date_created}}</p>
+  
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
 </div>
 
+   {{#if comments.length}}
+  <div class="col-md-6 post-list">
+    <h3>comments:</h3>
 
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>comment:</h3>
-
-    <form class="form new-comment-form">
+    {{#each comments as |comment|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <p>{{comment.description}}</p>
+        <p>{{comment.user.name}}</p>
+        {{format_date comment.date_created}}
+      </div>
+     
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+    <form class="form new-comment-form" data-id="{{id}}">
       <div class="form-group">
-        <label for="post-desc">description:</label>
-        <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+        <label for="comment-desc">Leave a comment!:</label>
+        <textarea class="form-input" id="comment-desc" name="comment-desc"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">submit</button>
       </div>
     </form>
-  </div>
+
+  <script src="../js/post.js"></script>
