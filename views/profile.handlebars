@@ -6,19 +6,25 @@
 
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Blogpost</h3>
+    <h3>{{#if selectedPost}}Edit Post{{else}}Create a New Blogpost{{/if}}</h3>
 
     <form class="form new-post-form">
+      {{#if selectedPost}}
+      <input type="hidden" name="post-id" id="post-id" data-id="{{post.id}}" value="{{selectedPost.id}}" />
+      {{/if}}
       <div class="form-group">
         <label for="post-name">post name:</label>
-        <input class="form-input" type="text" id="post-name" name="post-name" />
+        <input class="form-input" type="text" id="post-name" name="post-name" {{#if selectedPost}}value="{{selectedPost.post_name}}"{{/if}}/>
       </div>
       <div class="form-group">
         <label for="post-desc">description:</label>
-        <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+        <textarea class="form-input" id="post-desc" name="post-desc">{{#if selectedPost}}{{selectedPost.post_desc}}{{/if}}</textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">{{#if selectedPost}}Update{{else}}Create{{/if}}</button>
+        {{#if selectedPost}}
+        <button type="button" class="btn btn-danger cancel-edit-btn">Cancel</button>
+        {{/if}}
       </div>
     </form>
   </div>
@@ -33,7 +39,8 @@
         <h4><a href="/posts/{{post.id}}">{{post.post_name}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-primary" data-id="{{post.id}}">DELETE</button>
+        <button class="btn btn-sm btn-primary edit-post-btn" data-id="{{post.id}}">EDIT</button>
+        <button class="btn btn-sm btn-danger delete-post-btn" data-id="{{post.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}

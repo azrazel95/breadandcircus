@@ -14,7 +14,7 @@ const newFormHandler = async (event) => {
       });
       console.log(description)
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace(`/posts/${postId}`);
       } else {
         alert('Failed to create comment');
       }
