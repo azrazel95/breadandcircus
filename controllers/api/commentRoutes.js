@@ -1,36 +1,38 @@
+//importing our router, models and authentication
 const router = require('express').Router();
 const { Comment, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
-
-router.get('/', async (req, res) =>{
-  try{
+//comment get request for all comments including user name and post name
+router.get('/', async (req, res) => {
+  try {
     const commentData = await Comment.findAll({
       include: [
         { model: User, attributes: ['name'] },
         { model: Post, attributes: ['post_name'] }
       ]
-    }); 
+    });
     res.status(200).json(commentData);
   } catch (err) {
     res.status(500).json(err);
   }
 })
 
-
-router.get('/:id', async (req, res) =>{
-  try{
+//comment get request for a specific comment including user name and post name
+router.get('/:id', async (req, res) => {
+  try {
     const commentData = await Comment.findByPk(req.params.id, {
       include: [
         { model: User, attributes: ['name'] },
         { model: Post, attributes: ['post_name'] }
       ]
-    }); 
+    });
     res.status(200).json(commentData);
   } catch (err) {
     res.status(500).json(err);
   }
 })
 
+//post request to create a comment
 router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
@@ -44,6 +46,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// delete request for comment by id
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.destroy({

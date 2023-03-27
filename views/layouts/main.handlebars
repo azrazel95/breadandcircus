@@ -1,3 +1,4 @@
+{{!-- main handlebars is our base template --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,19 +6,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bread and Circus tech blog</title>
+  {{!-- styles --}}
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
-
+{{!-- navbar --}}
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
         <a href="/">Bread and Circus techblog</a>
       </h1>
-      <nav>
+      <nav class="nav">
         <a href="/profile">dashboard</a> |
-        <!-- Conditionally render login or logout links -->
+        <!-- Conditionally renders login or logout links -->
         {{#if logged_in}}
         
         <button class="no-button" id="logout">logout</button>
@@ -27,7 +29,7 @@
       </nav>
     </header>
     <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
+      <!-- Renders the sub layout -->
       {{{ body }}}
     </main>
     <footer>
