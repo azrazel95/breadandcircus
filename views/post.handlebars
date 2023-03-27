@@ -1,14 +1,15 @@
 <div class="text-center">
+  {{!-- inserts the posts information --}}
   <h2>{{post_name}}</h2>
   <p>{{description}}</p>
   
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
 </div>
-
+{{!-- if comments exist, renders this text --}}
    {{#if comments.length}}
   <div class="col-md-6 post-list">
     <h3>comments:</h3>
-
+{{!-- renders all the comments and information --}}
     {{#each comments as |comment|}}
     <div class="row mb-2">
       <div class="col-md-8">
@@ -22,6 +23,7 @@
   </div>
   {{/if}}
 </div>
+{{!-- form to insert comments --}}
     <form class="form new-comment-form" data-id="{{id}}">
       <div class="form-group">
         <label for="comment-desc">Leave a comment!:</label>

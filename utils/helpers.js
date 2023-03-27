@@ -1,3 +1,4 @@
+// im really only using this for the date but i wanna keep it
 module.exports = {
   format_date: (date) => {
     // Format date as MM/DD/YYYY

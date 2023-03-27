@@ -1,17 +1,20 @@
 <div class="row">
   <div class="col-auto">
+    {{!-- welcome message --}}
     <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
 
 <div class="row mt-4">
   <div class="col-md-6">
+    {{!-- if the edit button has been pressed, it will display edit post, by default it will display create a new blogpost --}}
     <h3>{{#if selectedPost}}Edit Post{{else}}Create a New Blogpost{{/if}}</h3>
-
+{{!-- if it is being edited, it adds the id --}}
     <form class="form new-post-form">
       {{#if selectedPost}}
       <input type="hidden" name="post-id" id="post-id" data-id="{{post.id}}" value="{{selectedPost.id}}" />
       {{/if}}
+      {{!-- post form --}}
       <div class="form-group">
         <label for="post-name">post name:</label>
         <input class="form-input" type="text" id="post-name" name="post-name" {{#if selectedPost}}value="{{selectedPost.post_name}}"{{/if}}/>
@@ -22,17 +25,18 @@
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">{{#if selectedPost}}Update{{else}}Create{{/if}}</button>
+        {{!-- cancel --}}
         {{#if selectedPost}}
         <button type="button" class="btn btn-danger cancel-edit-btn">Cancel</button>
         {{/if}}
       </div>
     </form>
   </div>
-
+{{!-- if posts exist, render posts --}}
   {{#if posts.length}}
   <div class="col-md-6 post-list">
     <h3>posts:</h3>
-
+{{!-- renders all posts available and populates its information --}}
     {{#each posts as |post|}}
     <div class="row mb-2">
       <div class="col-md-8">
@@ -47,5 +51,5 @@
   </div>
   {{/if}}
 </div>
-
+{{!-- profile script --}}
 <script src="./js/profile.js"></script>
