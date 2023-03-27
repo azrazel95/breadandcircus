@@ -1,24 +1,29 @@
+// imports our model and datatypes from sequelize, plus sets up sequelize configs
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
-class Comment extends Model {}
+// sets up our comment model
+class Comment extends Model { }
 
 Comment.init(
   {
+    // id autoincrements so we dont need to assign it or mess with it, its a primary key
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
+    // description of comment
     description: {
       type: DataTypes.STRING,
     },
+    // its defaultvalue takes care of assigning it a value
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    // references user id for the user who created it
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -26,6 +31,7 @@ Comment.init(
         key: 'id',
       },
     },
+    // references the post it belongs to
     post_id: {
       type: DataTypes.INTEGER,
       references: {
