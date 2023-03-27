@@ -1,9 +1,9 @@
 <!-- Loop over each object in the projects array -->
 {{#each posts as |post| }}
-<div class="row card mb-4 project" style="width: 18rem;">
-  <div class="card-body col-md-5">
+<div class="row card mb-4 project">
+  <div class="card-body ">
     {{!-- inserts the data based on posts --}}
-    <h5 class="card-title col-md-7"><a href="/posts/{{post.id}}">{{post.post_name}}</a></h5>
+    <h5 class="card-title "><a href="/posts/{{post.id}}">{{post.post_name}}</a></h5>
     <h6 class="card-subtitle mb-2 text-body-secondary">Created by {{post.user.name}}</h6>
     <p class="card-text"></p>
   <p>

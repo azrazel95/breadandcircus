@@ -19,9 +19,14 @@ header {
   border-radius: 5%;
   box-shadow: 10px 5px 5px #065b83;
   background-color: #c5dce7;
+  justify-content: center;
 }
 
 /* makes the created by text smaller */
 .card-subtitle {
   font-size: small;
+}
+.card-body{
+  text-align: center;
+  
 }
